@@ -12,7 +12,6 @@ final authDatastoreProvider = Provider<AuthDatastore>((ref) {
   return AuthDatastore(firebaseAuth);
 });
 
-
 // Firebaseと直接やりとりするロジッククラス
 class AuthDatastore {
   final FirebaseAuth _firebaseAuth;
@@ -24,36 +23,26 @@ class AuthDatastore {
     String email,
     String password,
   ) async {
-    try {
-      final user = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      return user;
-    } on Exception catch (e) {
-      throw Exception('ユーザー登録に失敗しました： $e');
-    }
+    final user = await _firebaseAuth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    return user;
   }
 
   // Firebaseにログイン処理を送信
   Future<UserCredential> loginWithEmailAndPassword(
-      String email, String password) async {
-    try {
-      final user = await _firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
-      return user;
-    } on Exception catch (e) {
-      throw Exception('ログインに失敗しました： $e');
-    }
+    String email,
+    String password,
+  ) async {
+    final user = await _firebaseAuth.signInWithEmailAndPassword(
+        email: email, password: password);
+    return user;
   }
 
   // Firebaseにログアウト処理を送信
   Future<void> logout() async {
-    try {
-      await _firebaseAuth.signOut();
-    } on Exception catch (e) {
-      throw Exception('ログアウトに失敗しました： $e');
-    }
+    await _firebaseAuth.signOut();
   }
 
   // ユーザーの認証状態をFirebaseから教えてもらう
