@@ -1,5 +1,5 @@
 import 'package:flutter_app_architecture/data/datastore/auth_datastore.dart';
-import 'package:flutter_app_architecture/domain/models/user_model.dart';
+import 'package:flutter_app_architecture/domain/models/user_model/user_model.dart';
 import 'package:flutter_app_architecture/domain/repositories/i_auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

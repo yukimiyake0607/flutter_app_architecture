@@ -1,4 +1,4 @@
-import 'package:flutter_app_architecture/domain/models/user_model.dart';
+import 'package:flutter_app_architecture/domain/models/user_model/user_model.dart';
 
 abstract class IAuthRepository {
   Future<UserModel?> register(String email, String password);
