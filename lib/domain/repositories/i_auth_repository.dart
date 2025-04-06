@@ -1,6 +1,8 @@
+import 'package:flutter_app_architecture/domain/models/user_model.dart';
+
 abstract class IAuthRepository {
-  Future<void> register(String email, String password);
-  Future<void> login(String email, String password);
+  Future<UserModel?> register(String email, String password);
+  Future<UserModel?> login(String email, String password);
   Future<void> logout();
-  Stream<void> get authStateChanges;
+  Stream<UserModel?> get authStateChanges;
 }
