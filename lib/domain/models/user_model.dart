@@ -20,4 +20,11 @@ class UserModel with _$UserModel {
       email: user.email!,
     );
   }
+
+  factory UserModel.fromUser(User? user) {
+    if (user == null || user.email == null) {
+      throw Exception('無効なユーザー情報です');
+    }
+    return UserModel(id: user.uid, email: user.email!);
+  }
 }
