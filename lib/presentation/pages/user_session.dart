@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_architecture/presentation/controllers/auth_controller.dart';
-import 'package:flutter_app_architecture/presentation/pages/auth_page.dart';
+import 'package:flutter_app_architecture/presentation/pages/auth/auth_page.dart';
 import 'package:flutter_app_architecture/presentation/pages/core/error_page.dart';
 import 'package:flutter_app_architecture/presentation/pages/core/loading_page.dart';
 import 'package:flutter_app_architecture/presentation/pages/home_page.dart';
