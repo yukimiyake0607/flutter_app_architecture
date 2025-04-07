@@ -51,11 +51,7 @@ class AuthRepositoryImpl implements IAuthRepository {
 
   @override
   Stream<UserModel?> get authStateChanges {
-    try {
-      return _authDatastore.authStateChanges
-          .map((user) => user != null ? UserModel.fromUser(user) : null);
-    } on Exception catch (e) {
-      throw Exception('ユーザー情報取得に失敗しました: $e');
-    }
+    return _authDatastore.authStateChanges
+        .map((user) => user != null ? UserModel.fromUser(user) : null);
   }
 }
