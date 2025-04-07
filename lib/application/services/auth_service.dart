@@ -42,7 +42,7 @@ class AuthService {
   Future<Result<void, Exception>> logout() async {
     try {
       await _authRepository.logout();
-      return Result.success(null);
+      return const Result.success(null);
     } on Exception catch (e) {
       return Result.failure(e);
     }

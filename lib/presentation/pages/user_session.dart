@@ -6,6 +6,6 @@ class UserSession extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AuthPage();
+    return const AuthPage();
   }
 }
