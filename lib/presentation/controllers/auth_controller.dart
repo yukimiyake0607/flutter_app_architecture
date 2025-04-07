@@ -15,7 +15,7 @@ class AuthController extends _$AuthController {
         return AsyncValue.data(user);
       });
     });
-    return const AsyncValue.loading();
+    return const AsyncValue.data(null);
   }
 
   Future<void> register(String email, String password) async {
