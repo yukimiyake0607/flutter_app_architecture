@@ -9,6 +9,7 @@ final authServiceProvider = Provider<AuthService>((ref) {
   return AuthService(authRepository);
 });
 
+// 結果をResultクラスに変換
 class AuthService {
   final IAuthRepository _authRepository;
 
