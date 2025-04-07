@@ -38,9 +38,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     if (value == null || value.isEmpty) {
                       return 'メールアドレスを入力してください';
                     }
-                    if (!RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
-                      return 'アルファベットのみを入力してください';
-                    }
 
                     return null;
                   },
@@ -74,7 +71,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         const SizedBox(height: 30),
         TextButton(
           onPressed: () {
-            context.go('/register-page');
+            context.push('/register-page');
           },
           child: const Text('新規登録はこちら'),
         ),
