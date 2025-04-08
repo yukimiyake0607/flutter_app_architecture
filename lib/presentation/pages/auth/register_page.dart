@@ -55,8 +55,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       if (value != _rePasswordTextController.text) {
                         return 'パスワードが一致していません';
                       }
-                      if (!RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
-                        return 'アルファベットのみを入力してください';
+                      if (!RegExp(r'^[a-zA-Z0-9]+$').hasMatch(value)) {
+                        return 'アルファベットと数字のみを入力してください';
                       }
                       return null;
                     },
@@ -70,8 +70,8 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                       if (value != _passwordTextController.text) {
                         return 'パスワードが一致していません';
                       }
-                      if (!RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
-                        return 'アルファベットのみを入力してください';
+                      if (!RegExp(r'^[a-zA-Z0-9]+$').hasMatch(value)) {
+                        return 'アルファベットと数字のみを入力してください';
                       }
                       return null;
                     },

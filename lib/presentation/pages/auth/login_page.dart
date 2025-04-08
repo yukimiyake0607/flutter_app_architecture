@@ -48,8 +48,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     if (value == null || value.isEmpty) {
                       return 'パスワードを入力してください';
                     }
-                    if (!RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
-                      return 'アルファベットのみを入力してください';
+                    if (!RegExp(r'^[a-zA-Z0-9]+$').hasMatch(value)) {
+                      return 'アルファベットと数字のみを入力してください';
                     }
 
                     return null;
@@ -62,9 +62,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         ElevatedButton(
           onPressed: () {
             formKey.currentState?.validate();
-            ref
-                .read(authControllerProvider.notifier)
-                .login(_emailTextController.text, _passwordTextController.text);
+            authState.isLoading
+                ? null
+                : ref.read(authControllerProvider.notifier).login(
+                    _emailTextController.text, _passwordTextController.text);
           },
           child: const Text('ログイン'),
         ),
