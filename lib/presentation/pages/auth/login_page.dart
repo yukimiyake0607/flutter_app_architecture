@@ -24,6 +24,22 @@ class _LoginPageState extends ConsumerState<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final authState = ref.watch(authControllerProvider);
+
+    ref.listen(authControllerProvider, (_, state) {
+      state.whenOrNull(
+        data: (user) {
+          if (user != null) {
+            context.go('/home-page');
+          }
+        },
+        error: (error, stackTrace) {
+          return ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text('$error'),
+          ));
+        },
+      );
+    });
     return Column(
       children: [
         Form(
