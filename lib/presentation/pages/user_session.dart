@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_architecture/presentation/controllers/auth_controller.dart';
+import 'package:flutter_app_architecture/presentation/controllers/auth_state_provider.dart';
 import 'package:flutter_app_architecture/presentation/pages/auth/auth_page.dart';
 import 'package:flutter_app_architecture/presentation/pages/core/error_page.dart';
 import 'package:flutter_app_architecture/presentation/pages/core/loading_page.dart';
@@ -11,8 +11,8 @@ class UserSession extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authControllerAsync = ref.watch(authControllerProvider);
-    return authControllerAsync.when(
+    final authStateStream = ref.watch(authStateStreamProvider);
+    return authStateStream.when(
       data: (userModel) {
         if (userModel == null) {
           return const AuthPage();

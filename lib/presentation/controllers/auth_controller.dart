@@ -1,6 +1,5 @@
 import 'package:flutter_app_architecture/data/repositories/auth_repository_impl.dart';
 import 'package:flutter_app_architecture/domain/models/user_model/user_model.dart';
-import 'package:flutter_app_architecture/presentation/controllers/auth_state_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_controller.g.dart';
@@ -8,14 +7,8 @@ part 'auth_controller.g.dart';
 @riverpod
 class AuthController extends _$AuthController {
   @override
-  AsyncValue<UserModel?> build() {
-    // Streamをリッスンし変化に応じて更新
-    ref.listen(authStateStreamProvider, (previous, next) {
-      next.whenData((user) {
-        return AsyncValue.data(user);
-      });
-    });
-    return const AsyncValue.data(null);
+  FutureOr<UserModel?> build() {
+    return null;
   }
 
   Future<void> register(String email, String password) async {
@@ -41,7 +34,7 @@ class AuthController extends _$AuthController {
     }
   }
 
-  Future<void> logout(String email, String password) async {
+  Future<void> logout() async {
     state = const AsyncValue.loading();
 
     try {
