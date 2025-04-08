@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_architecture/presentation/pages/auth/auth_page.dart';
 import 'package:flutter_app_architecture/presentation/pages/auth/register_page.dart';
 import 'package:flutter_app_architecture/presentation/pages/home_page.dart';
 import 'package:flutter_app_architecture/presentation/pages/user_session.dart';
@@ -34,6 +35,16 @@ final goRouter = GoRouter(
         return MaterialPage(
           key: state.pageKey,
           child: const HomePage(),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/auth-page',
+      name: 'auth-page',
+      pageBuilder: (context, state) {
+        return MaterialPage(
+          key: state.pageKey,
+          child: const AuthPage(),
         );
       },
     ),
