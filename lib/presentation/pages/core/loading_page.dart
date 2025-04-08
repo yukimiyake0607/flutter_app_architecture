@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AuthPage extends StatelessWidget {
-  const AuthPage({super.key});
+class LoadingPage extends StatelessWidget {
+  const LoadingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('AuthPage'),
+        child: CircularProgressIndicator(),
       ),
     );
   }
