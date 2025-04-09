@@ -50,7 +50,7 @@
 
 ## プロジェクト構造
 
-'''
+<pre>
 lib
 ├── data
 │   ├── datastore
@@ -86,6 +86,36 @@ lib
 │       ├── home_page.dart
 │       └── user_session.dart
 └── router.dart
-'''
+</pre>
+
+## 環境構築
+
+### リポジトリをクローン
+```bash
+git clone https://github.com/yukimiyake0607/flutter_app_architecture.git
+```
+### ディレクトリを移動
+```bash
+cd flutter_app_architecture
+```
+### fvmをインストール
+```bash
+brew tap leoafarias/fvm
+brew install fvm
+```
+### プロジェクトで指定されたバージョンのFlutterをインストール
+```bash
+fvm use
+```
+### Lefthookをインストール
+```bash
+brew install lefthook
+lefthook install
+```
+### パッケージをインストール
+```bash
+fvm flutter pub get
+```
+
 
 
